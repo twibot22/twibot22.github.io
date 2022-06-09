@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Shangbin Feng</title>
@@ -314,3 +314,563 @@
 
 </body>
 </html>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en"><head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-84290243-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-84290243-2');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Rowan Zellers">
+    <meta property="og:image" content="rowan.jpg">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Defending Against Neural Fake News</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
+    <style>
+        /* Show it is fixed to the top */
+        body {
+            padding-top: 4.5rem;
+            position: relative;
+        }
+
+        .anchor-target:target::before {
+            display: block;
+            content: " ";
+            margin-top: -60px;
+            padding-top: 60px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+
+        .jumbotron {
+            margin-bottom: .5rem;
+            padding: 2rem 2rem;
+        }
+
+        .disclaimer {
+            background-color: #fcf8e3;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #faebcc;
+            border-radius: 4px;
+            font-size: .8rem;
+        }
+
+        .headshot {
+            width: 8rem;
+            margin: 0.4rem;
+        }
+
+        .card-body {
+            padding: 0.5rem;
+        }
+
+        .citation {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            word-break: break-all;
+            word-wrap: break-word;
+            color: #333;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .answerbutton {
+            white-space: normal !important;
+            word-wrap: break-word;
+            text-align: left;
+        }
+
+        /*.answergroup {*/
+        /*display: inline-grid;*/
+        /*}*/
+
+        .box-shadow {
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+        }
+
+        .fig-shadow {
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .15);
+        }
+
+
+        .navbar-brand {
+            font-family: 'Carter One', cursive;
+            font-size: 1.5rem;
+        }
+
+        .swagtitleemph {
+            font-family: 'Carter One', cursive;
+        }
+
+        .swagemph {
+            font-family: 'Carter One', cursive;
+        }
+
+        .msg {
+            margin-bottom: 0;
+        }
+
+        #presets > button {
+            margin-right: 0.25rem;
+            margin-left: 0.25rem;
+        }
+
+        #presets {
+            margin-bottom: 1rem;
+        }
+
+        /*https://stackoverflow.com/questions/35647044/boostrap-how-to-stick-a-button-over-an-image-when-re-sizing*/
+        .img-wrapper {
+            position: relative;
+        }
+
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: left;
+        }
+
+        .img-overlay:before {
+            content: ' ';
+            display: block;
+            /* adjust 'height' to position overlay content vertically */
+            height: 40%;
+        }
+
+        .input-group>.input-group-prepend {
+            width: 100px;
+        }
+        .input-group .input-group-text {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body data-spy="scroll" data-target="#navbarCollapse" data-offset="200" data-new-gr-c-s-check-loaded="14.1017.0" data-gr-ext-installed="">
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Grover</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#paper">Paper</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#whatsnext">What's next?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#authors">Authors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="container">
+    <h1><span class="swagemph">Grover</span>: A State-of-the-Art Defense against Neural Fake News (NeurIPS 2019)
+</h1>
+    <p>Online disinformation, or fake news intended to deceive, has emerged as a major societal problem. Currently, fake news articles are written by humans, but <a href="https://openai.com/blog/better-language-models/">recently-introduced AI technology</a> might enable adversaries to generate fake news. Our goal is to reliably detect this “neural fake news” so that its harm can be minimized.</p>
+
+    <p>To study and detect neural fake news, we built a model named Grover. Our study presents a surprising result: the best way to detect neural fake news is to use a model that is also a generator. The generator is most familiar with its own habits, quirks, and traits, as well as those from similar AI models. Our model, Grover, is a generator that can easily spot its own generated fake news articles, as well as those generated by other AIs. In a challenging setting with limited access to neural fake news articles, Grover obtains over 92% accuracy at telling apart human-written from machine-written news.
+    </p>
+
+      <a class="btn btn-lg btn-info" href="https://arxiv.org/abs/1905.12616" role="button">Paper (arxiv) »</a>
+          <a class="btn btn-lg btn-warning" href="https://grover.allenai.org/" role="button">Demo »</a>
+        <a class="btn btn-lg btn-secondary" href="https://medium.com/ai2-blog/counteracting-neural-disinformation-with-grover-6cf6690d463b" role="button">Blog post with more experiments »</a>
+        <a class="btn btn-lg btn-primary" href="http://github.com/rowanz/grover" role="button">Code »</a>
+        <a class="btn btn-lg btn-dark" href="https://docs.google.com/forms/d/1LMAUeUtHNPXO9koyAIlDpvyKsLSYlrBj3rYhC30a7Ak" role="button">Get checkpoints for Grover-Mega »</a>
+
+<!--<p>Here, we demonstrate how Grover can generate a realistic-looking fake news article, and then detect that it was AI-generated. To generate a fake news article with Grover, fill in the article pieces below and then press <b>generate</b> next to what you want to generate. After filling in an article, you can <b>detect</b> if it was Grover-written or Human-written.-->
+    <!--</p>-->
+
+    <!--<div class="disclaimer">-->
+        <!--<strong>Disclaimer:</strong> Due to heavy traffic, Grover might take a while (upwards of a few minutes) to generate article pieces. Please be patient 😀-->
+    <!--</div>-->
+
+    <!--<div id="presetswrapper">Suggestions:-->
+    <!--<div class="btn-toolbar" id="presets">-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="groverdemo">-->
+       <!--<div class="mb-3">-->
+       <!--<div class="input-group">-->
+        <!--<div class="input-group-prepend"><span class="input-group-text">Domain</span></div>-->
+        <!--<textarea class="form-control" name="domain" rows="1"></textarea>-->
+        <!--<div class="input-group-append">-->
+          <!--<button class="btn btn-primary" type="button" id="submitdomain">Generate</button>-->
+        <!--</div></div>-->
+        <!--<small id="domainhelp" class="form-text text-muted">For example, nytimes.com or wired.com or theguardian.com or latimes.com or techcrunch.com ...</small>-->
+      <!--</div>-->
+
+        <!--<div class="input-group mb-3">-->
+            <!--<div class="input-group-prepend"><span class="input-group-text">Date</span></div>-->
+            <!--<textarea class="form-control" name="date" rows="1">June 1, 2019</textarea>-->
+            <!--<div class="input-group-append">-->
+                <!--<button class="btn btn-primary" type="button" id="submitdate">Generate</button>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="mb-3">-->
+            <!--<div class="input-group">-->
+                <!--<div class="input-group-prepend"><span class="input-group-text">Authors</span></div>-->
+                <!--<textarea class="form-control" name="authors" rows="1"></textarea>-->
+                <!--<div class="input-group-append">-->
+                    <!--<button class="btn btn-primary" type="button" id="submitauthors">Generate</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="input-group mb-3">-->
+            <!--<div class="input-group-prepend"><span class="input-group-text">Headline</span></div>-->
+            <!--<textarea class="form-control" name="title" rows="2"></textarea>-->
+            <!--<div class="input-group-append">-->
+                <!--<button class="btn btn-primary" type="button" id="submittitle">Generate</button>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="input-group mb-3">-->
+            <!--<div class="input-group-prepend"><span class="input-group-text">Body</span></div>-->
+            <!--<textarea class="form-control"-->
+                      <!--name="article"-->
+                      <!--placeholder="" rows="20"></textarea>-->
+            <!--<div class="input-group-append">-->
+                <!--<button class="btn btn-primary" type="button" id="submitarticle">Generate</button>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="input-group mb-3">-->
+            <!--<button class="btn btn-primary" type="button" id="submitdisc">Was the article written by a Human, or by Grover?</button>-->
+        <!--</div>-->
+
+        <!--<div id="problems"></div>-->
+
+        <!--<div class="disclaimer">-->
+            <!--<strong>Disclaimer.</strong> The human vs. Grover-written detection results (available above) should be taken with a grain of salt. Though our experiments show that (in a controlled setting) the detector has high accuracy, performance might be poor on weird, adversarial, or out-of-distribution examples. Additionally, the confidence scores tend to be overly extreme (like 99.9% confidence).-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="jumbotron">-->
+        <!--<h1>Defending Against Neural Fake News</h1>-->
+        <!--<a class="btn btn-lg btn-info" href="https://arxiv.org/abs/1905.12616" role="button">Paper (arxiv) &raquo;</a>-->
+    <!--</div>-->
+
+    <div id="about" class="anchor-target" style="margin-top: 1rem;"><h2>Our goal is to develop a strategy to respond to Neural Fake News.</h2>
+        <p>
+            Recent progress in natural language generation has raised dual-use concerns.
+            While applications like summarization and translation are positive, the
+            underlying technology also might enable adversaries to generate neural fake
+            news: targeted propaganda that closely mimics the style of real news.
+        </p>
+
+        <p> Modern computer security relies on careful threat modeling: identifying
+            potential threats and vulnerabilities from an adversary's point of view, and
+            exploring potential mitigations to these threats. Likewise, developing robust
+            defenses against neural fake news requires us first to carefully investigate
+            and characterize the risks of these models. We thus present a model for
+            controllable text generation called Grover. Given a headline like `Link Found
+            Between Vaccines and Autism,' Grover can generate the rest of the article;
+            humans find these generations to be more trustworthy than human-written
+            disinformation.</p>
+        <p>Developing robust verification techniques against generators like Grover is
+            critical. We find that best current discriminators can classify neural fake
+            news from real, human-written, news with 73% accuracy, assuming access to a
+            moderate level of training data. Counterintuitively, the best defense against
+            Grover turns out to be Grover itself, with 92% accuracy, demonstrating the
+            importance of public release of strong generators. We investigate these results
+            further, showing that exposure bias -- and sampling strategies that alleviate
+            its effects -- both leave artifacts that similar discriminators can pick up on.
+            We conclude by discussing ethical issues regarding the technology, and plan to
+            release Grover publicly, helping pave the way for better detection of neural
+            fake news.
+        </p>
+        <div id="paper" class="anchor-target">
+            <h2>Paper: Defending Against Neural Fake News</h2>
+            <div class="img-wrapper">
+                <a href="https://arxiv.org/abs/1905.12616"><img class="img-fluid" src="paperpreview.jpg">
+                    <div class="img-overlay">
+                        <button class="btn btn-info">Read the paper on arXiv»</button>
+                    </div>
+                </a>
+            </div>
+            If the paper inspires you, please cite us:
+            <pre class="citation">@incollection{zellers2019neuralfakenews,
+title = {Defending Against Neural Fake News},
+author = {Zellers, Rowan and Holtzman, Ari and Rashkin, Hannah and Bisk, Yonatan and Farhadi, Ali and Roesner, Franziska and Choi, Yejin},
+booktitle = {Advances in Neural Information Processing Systems 32},
+editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
+pages = {9054--9065},
+year = {2019},
+publisher = {Curran Associates, Inc.},
+url = {http://papers.nips.cc/paper/9106-defending-against-neural-fake-news.pdf}
+}
+
+</pre>
+        </div>
+            <div id="whatsnext" class="anchor-target" style="margin-top: 1rem;"><h2>What's next, research and policy wise?</h2>
+        <p>
+            In our paper, we introduced Grover, a state-of-the-art model for detecting neural fake news. However, because of the underlying mechanics of current text generation systems, strong disinformation detectors will also be strong disinformation generators.</p>
+       <p>
+           We have publicly released our models. However, Grover is not a panacea. Though in our experiments we found Grover tends to be a highly accurate discriminator of neural fake news, its performance might degrade in practice; moreover, there are serious consequences to both false negatives and false positives. </p>
+      <p>
+          Our research is the <b>first</b> step toward studying algorithmic defense mechanisms against mass production of fake news by machines. We invite follow up research on this topic, which we also intend to do.
+        </p>
+
+
+        <div id="authors" class="anchor-target">
+            <h2>Authors</h2>
+            <p>This work was done by a team of reseachers at the University of Washington, specifically in the <a href="https://www.cs.washington.edu/">Paul G. Allen School of Computer Science and Engineering</a>. Some of us are also affiliated with the <a href="https://allenai.org">Allen Institute for AI (AI2)</a>. </p>
+            <div class="row justify-content-center" style="margin: 0 auto;">
+                <div class="card headshot box-shadow">
+                    <img class="card-img-top" src="rowan.jpg" alt="rowan">
+                    <div class="card-body">
+                        <p class="card-text"><a href="../">Rowan Zellers</a></p>
+                    </div>
+                </div>
+                <div class="card headshot box-shadow">
+                    <img class="card-img-top" src="ari.jpg" alt="ari">
+                    <div class="card-body">
+                        <p class="card-text"><a href="https://ari-holtzman.github.io/">Ari Holtzman</a></p>
+                    </div>
+                </div>
+                <div class="card headshot box-shadow">
+                    <img class="card-img-top" src="hannah.jpg" alt="hannah">
+                    <div class="card-body">
+                        <p class="card-text"><a href="https://homes.cs.washington.edu/~hrashkin/">Hannah Rashkin</a></p>
+                    </div>
+                </div>
+                <div class="card headshot box-shadow">
+                    <img class="card-img-top" src="yonatan.jpg" alt="yonatan">
+                    <div class="card-body">
+                        <p class="card-text"><a href="http://yonatanbisk.com">Yonatan Bisk</a></p>
+                    </div>
+                </div>
+                <div class="card headshot box-shadow">
+                    <img class="card-img-top" src="ali.jpg" alt="ali">
+                    <div class="card-body">
+                        <p class="card-text"><a href="http://homes.cs.washington.edu/~ali/">Ali Farhadi</a></p>
+                    </div>
+                </div>
+                <div class="card headshot box-shadow">
+                    <img class="card-img-top" src="franzi.jpg" alt="franzi">
+                    <div class="card-body">
+                        <p class="card-text"><a href="https://www.franziroesner.com/">Franziska Roesner</a></p>
+                    </div>
+                </div>
+                <div class="card headshot box-shadow">
+                    <img class="card-img-top" src="yejin.jpg" alt="yejin">
+                    <div class="card-body">
+                        <p class="card-text"><a href="https://homes.cs.washington.edu/~yejin/">Yejin Choi</a></p>
+                    </div>
+                </div>
+            </div>
+
+        <!--</div>-->
+      </div>
+
+        </div>
+
+        <div id="contact" class="anchor-target">
+            <h2>Contact</h2>
+            <p>Questions about neural fake news, or want to get in touch? Contact Rowan at <a href="../#contact">rowanzellers.com/contact</a>.</p>
+        </div>
+
+         <div class="row">
+          <div class="col-lg-4 thumb d-flex align-items-center">
+            <a class="thumbnail">
+              <img class="img-fluid" src="img/uw-flat.png" alt="">
+            </a>
+          </div>
+          <div class="col-lg-4 thumb d-flex align-items-center">
+            <a class="thumbnail">
+              <img class="img-fluid" src="img/allen_school.png" alt="">
+            </a>
+          </div>
+          <div class="col-lg-4 thumb d-flex align-items-center">
+            <a class="thumbnail">
+              <img class="img-fluid" src="img/ai2.png?fuck" alt="">
+            </a>
+         </div>
+         </div>
+
+    </div>
+</main>
+
+
+<!-- Bootstrap JS and it's dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+</script>
+
+<script>
+var fields = ['domain', 'date', 'authors', 'title', 'article'];
+var searchParams = new URLSearchParams(window.location.search);
+
+function get_formdata() {
+  var formdata = {};
+  for (var i=0; i < fields.length; i++) {
+    formdata[fields[i]] = $('textarea[name="' + fields[i] + '"]').val();
+    searchParams.set(fields[i], formdata[fields[i]]);
+  }
+
+  var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+  history.pushState(null, '', newRelativePathQuery);
+  return formdata;
+}
+
+function generate(formdata, target) {
+  if (fields.indexOf(target) === -1) {
+    alert("Looks like you tried generating " + target + " but that's not one of the valid fields. wtf");
+    return ''
+  }
+  formdata["target"] = target;
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://grover.rowanzellers.com/api/gen', true);
+  xhr.setRequestHeader('Content-type', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var newtext = JSON.parse(xhr.responseText)['gen'];
+      $('textarea[name="' + target + '"]').val(newtext);
+      $('#problems').empty();
+    }
+  };
+  xhr.send(JSON.stringify(formdata));
+  var waiting_msg = $('<div class="alert alert-secondary">');
+  waiting_msg.append('Waiting for response. This might take a while due to high traffic right now, sorry!');
+  $('#problems').append(waiting_msg);
+}
+
+function discriminate(formdata) {
+  formdata["target"] = "discrimination";
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://grover.rowanzellers.com/api/gen', true);
+  xhr.setRequestHeader('Content-type', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var machineprob = JSON.parse(xhr.responseText)['groverprob'];
+      $('#problems').empty();
+
+      var label = 'Grover written';
+      var prob = machineprob;
+      if (machineprob < 0.5) {
+          label = 'Human written';
+          prob = 1-machineprob
+      }
+      prob = (100*prob).toFixed(1);
+
+      if (machineprob < 0.25) {
+          var prob_msg = $('<div class="alert alert-success">');
+      } else if (machineprob < 0.5) {
+          var prob_msg = $('<div class="alert alert-primary">');
+      } else if (machineprob < 0.75) {
+          var prob_msg = $('<div class="alert alert-warning">');
+      } else {
+          var prob_msg = $('<div class="alert alert-danger">');
+      }
+      prob_msg.append("We think it's <b>" + label + "</b>, with probability " + prob + "%.");
+      $('#problems').append(prob_msg);
+    }
+  };
+  xhr.send(JSON.stringify(formdata));
+  var waiting_msg = $('<div class="alert alert-secondary">');
+  waiting_msg.append('waiting for response.');
+  $('#problems').append(waiting_msg);
+}
+
+$( document ).ready(function() {
+    $.getJSON("examples.json?sigh=" + Math.floor(Math.random() * 1000), function (data) {
+      for (let i=0; i < data.length; i++) {
+          let mybutton = $('<button type="button" class="btn btn-info">').text(data[i].name);
+          mybutton.on('click', function() {
+              for (let key in data[i]) {
+                  if (key !== 'name' && data[i].hasOwnProperty(key)) {
+                    $('textarea[name="' + key + '"]').val(data[i][key]);
+                  }
+              }
+          });
+          $('#presets').append(mybutton);
+      }
+        var isempty=true;
+         // discriminate
+      $('#submitdisc').on('click', function () {
+        discriminate(get_formdata());
+      });
+      for (let i=0; i < fields.length; i++) {
+        $('#submit' + fields[i]).on('click', function () {
+          generate(get_formdata(), fields[i]);
+        });
+
+        if (searchParams.has(fields[i])) {
+          $('textarea[name="' + fields[i] + '"]').val(searchParams.get(fields[i]));
+          isempty=false;
+        }
+      }
+      // We're still empty so use preset
+        if (isempty) {
+            $('#presets').children()[0].click();
+        }
+    });
+
+});
+</script>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+
+
+
+
+
+
+
+
