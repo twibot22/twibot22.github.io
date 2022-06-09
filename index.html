@@ -495,7 +495,7 @@
                 <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#paper">Resources</a>
+                <a class="nav-link" href="#paper">Paper</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#whatsnext">What's next?</a>
@@ -513,10 +513,7 @@
 <main role="main" class="container">
     <h1><span class="swagemph">TwiBot-22</span>: Towards Graph-Based Twitter Bot Detection
 </h1>
-    <p>Twitter bot detection has become an increasingly important task to combat misinformation, facilitate social media moderation, and preserve the integrity of the online discourse. State-of-the-art bot detection methods generally leverage the graph structure of the Twitter network, and they exhibit promising performance when confronting novel Twitter bots that traditional methods fail to detect. However, very few of the existing Twitter bot detection datasets are graph-based, and even these few graph-based datasets suffer from limited dataset scale, incomplete graph structure, as well as low annotation quality. In fact, the lack of a large-scale graph-based Twitter bot detection benchmark that addresses these issues has seriously hindered the development and evaluation of novel graph-based bot detection approaches. In this paper, we propose TwiBot-22, a comprehensive graph-based Twitter bot detection benchmark that presents the largest dataset to date, provides diversified entities and relations on the Twitter network, and has considerably better annotation quality than existing datasets. In addition, we re-implement 35 representative Twitter bot detection baselines and evaluate them on 9 datasets, including TwiBot-22, to promote a fair comparison of model performance and a holistic understanding of research progress. To facilitate further research, we consolidate all implemented codes and datasets into the TwiBot-22 evaluation framework, where researchers could consistently evaluate new models and datasets.</p>
-
-
-
+    
       <a class="btn btn-lg btn-info" href="https://arxiv.org/abs/2106.13088" role="button">TwiBot-22 Paper »</a>
           <a class="btn btn-lg btn-warning" href="https://github.com/LuoUndergradXJTU/TwiBot22-baselines" role="button">TwiBot-22 Repo »</a>
         <a class="btn btn-lg btn-secondary" href="https://arxiv.org/abs/2106.13088" role="button">TwiBot-20 Paper »</a>
@@ -601,9 +598,12 @@
     <!--</div>-->
 
     <div id="about" class="anchor-target" style="margin-top: 1rem;"><h2>TBD</h2>
-        <p>
-            TBD
-        </p>
+        <p>Twitter bot detection has become an increasingly important task to combat misinformation, facilitate social media moderation, and preserve the integrity of the online discourse. State-of-the-art bot detection methods generally leverage the graph structure of the Twitter network, and they exhibit promising performance when confronting novel Twitter bots that traditional methods fail to detect.</p>
+        <p>However, very few of the existing Twitter bot detection datasets are graph-based, and even these few graph-based datasets suffer from limited dataset scale, incomplete graph structure, as well as low annotation quality. In fact, the lack of a large-scale graph-based Twitter bot detection benchmark that addresses these issues has seriously hindered the development and evaluation of novel graph-based bot detection approaches.</p>
+        <p>In this paper, we propose TwiBot-22, a comprehensive graph-based Twitter bot detection benchmark that presents the largest dataset to date, provides diversified entities and relations on the Twitter network, and has considerably better annotation quality than existing datasets.</p>
+        <p>In addition, we re-implement 35 representative Twitter bot detection baselines and evaluate them on 9 datasets, including TwiBot-22, to promote a fair comparison of model performance and a holistic understanding of research progress.</p>
+        <p>To facilitate further research, we consolidate all implemented codes and datasets into the TwiBot-22 evaluation framework, where researchers could consistently evaluate new models and datasets.</p>
+    
         
         <div id="paper" class="anchor-target">
             <h2>Paper: TwiBot-22: Towards Graph-Based Twitter Bot Detection</h2>
@@ -622,66 +622,61 @@
   pages={4485--4494},
   year={2021}
 }
-
 </pre>
         </div>
-            <div id="whatsnext" class="anchor-target" style="margin-top: 1rem;"><h2>What's next, research and policy wise?</h2>
-        <p>
-            In our paper, we introduced Grover, a state-of-the-art model for detecting neural fake news. However, because of the underlying mechanics of current text generation systems, strong disinformation detectors will also be strong disinformation generators.</p>
-       <p>
-           We have publicly released our models. However, Grover is not a panacea. Though in our experiments we found Grover tends to be a highly accurate discriminator of neural fake news, its performance might degrade in practice; moreover, there are serious consequences to both false negatives and false positives. </p>
-      <p>
-          Our research is the <b>first</b> step toward studying algorithmic defense mechanisms against mass production of fake news by machines. We invite follow up research on this topic, which we also intend to do.
-        </p>
+            <div id="whatsnext" class="anchor-target" style="margin-top: 1rem;"><h2>What's next?</h2>
+                <p><b>How do we identify bot clusters and their coordination campaigns?</b></p>
+                <p>While existing works study Twitter bot detection through individual analysis, novel Twitter bots are increasingly observed to act in groups and launch coordinated attacks. We aim to complement the scarce literature by proposing temporal and subgraph-level bot detection approaches to address this issue.</p>
+                <p><b>How do we incorporate multi-modal user features for bot detection?</b></p>
+                <p>In addition to text and graph, Twitter users and bots generate multi-modal user information such as images and videos. Since TwiBot-22 provides user media while none of the 35 baselines leverage these modalities, we aim to further explore Twitter bot detection with the help of images and videos.</p>
+                <p><b>How do we evaluate the generalization ability of bot detection methods?</b></p>
+                <p>Existing works mainly focus on bot detection performance while generalization is essential in ensuring that bot detection research generates real-world impact. We aim to complement the scarce literature by proposing measures to quantitatively evaluate bot detection generalization.</p>
 
 
         <div id="authors" class="anchor-target">
             <h2>Authors</h2>
-            <p>This work was done by a team of reseachers at the University of Washington, specifically in the <a href="https://www.cs.washington.edu/">Paul G. Allen School of Computer Science and Engineering</a>. Some of us are also affiliated with the <a href="https://allenai.org">Allen Institute for AI (AI2)</a>. </p>
+            <p>This work was done by a team of reseachers at Xi'an Jiaotong University, specifically in the <a href="https://luoundergradxjtu.github.io/">LUD Lab</a></p>
+            
+            <h3>Leading Authors</h3>
             <div class="row justify-content-center" style="margin: 0 auto;">
                 <div class="card headshot box-shadow">
-                    <img class="card-img-top" src="rowan.jpg" alt="rowan">
+                    <img class="card-img-top" src="shangbin.jpeg" alt="shangbin">
                     <div class="card-body">
-                        <p class="card-text"><a href="../">Rowan Zellers</a></p>
+                        <p class="card-text"><a href="https://bunsenfeng.github.io/">Shangbin Feng</a></p>
                     </div>
                 </div>
                 <div class="card headshot box-shadow">
-                    <img class="card-img-top" src="ari.jpg" alt="ari">
+                    <img class="card-img-top" src="zhaoxuan.jpg" alt="zhaoxuan">
                     <div class="card-body">
-                        <p class="card-text"><a href="https://ari-holtzman.github.io/">Ari Holtzman</a></p>
+                        <p class="card-text"><a href="https://tamsiuhin.github.io/">Zhaoxuan Tan</a></p>
                     </div>
                 </div>
                 <div class="card headshot box-shadow">
-                    <img class="card-img-top" src="hannah.jpg" alt="hannah">
+                    <img class="card-img-top" src="herun.jpg" alt="herun">
                     <div class="card-body">
-                        <p class="card-text"><a href="https://homes.cs.washington.edu/~hrashkin/">Hannah Rashkin</a></p>
+                        <p class="card-text"><a href=" https://whr000001.github.io/">Herun Wan</a></p>
                     </div>
                 </div>
                 <div class="card headshot box-shadow">
-                    <img class="card-img-top" src="yonatan.jpg" alt="yonatan">
+                    <img class="card-img-top" src="ningnan.jpg" alt="ningnan">
                     <div class="card-body">
-                        <p class="card-text"><a href="http://yonatanbisk.com">Yonatan Bisk</a></p>
+                        <p class="card-text"><a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=MpG_ZDEAAAAJ">Ningnan Wang</a></p>
                     </div>
                 </div>
                 <div class="card headshot box-shadow">
-                    <img class="card-img-top" src="ali.jpg" alt="ali">
+                    <img class="card-img-top" src="zilong.jpg" alt="zilong">
                     <div class="card-body">
-                        <p class="card-text"><a href="http://homes.cs.washington.edu/~ali/">Ali Farhadi</a></p>
+                        <p class="card-text"><a href="https://scholar.google.com/citations?hl=zh-CN&user=2pbka1gAAAAJ">Zilong Chen</a></p>
                     </div>
                 </div>
                 <div class="card headshot box-shadow">
-                    <img class="card-img-top" src="franzi.jpg" alt="franzi">
+                    <img class="card-img-top" src="binchi.jpg" alt="binchi">
                     <div class="card-body">
-                        <p class="card-text"><a href="https://www.franziroesner.com/">Franziska Roesner</a></p>
-                    </div>
-                </div>
-                <div class="card headshot box-shadow">
-                    <img class="card-img-top" src="yejin.jpg" alt="yejin">
-                    <div class="card-body">
-                        <p class="card-text"><a href="https://homes.cs.washington.edu/~yejin/">Yejin Choi</a></p>
+                        <p class="card-text"><a href="https://www.linkedin.com/in/binchi-zhang-274922221/">Binchi Zhang</a></p>
                     </div>
                 </div>
             </div>
+            
 
         <!--</div>-->
       </div>
@@ -690,8 +685,10 @@
 
         <div id="contact" class="anchor-target">
             <h2>Contact</h2>
-            <p>Questions about neural fake news, or want to get in touch? Contact Rowan at <a href="../#contact">rowanzellers.com/contact</a>.</p>
+            <p>Questions about Twitter bot detection, or want to get in touch? Contact Shangbin at <a href="https://bunsenfeng.github.io/">bunsenfeng.github.io</a>.</p>
         </div>
+        
+        <p>Design and CSS courtesy: <a href="https://rowanzellers.com/">Rowan Zellers</a></p>
 
          <div class="row">
           <div class="col-lg-4 thumb d-flex align-items-center">
