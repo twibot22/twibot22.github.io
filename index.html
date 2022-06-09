@@ -517,11 +517,11 @@
 
 
 
-      <a class="btn btn-lg btn-info" href="https://arxiv.org/abs/1905.12616" role="button">Paper (arxiv) »</a>
-          <a class="btn btn-lg btn-warning" href="https://grover.allenai.org/" role="button">Demo »</a>
-        <a class="btn btn-lg btn-secondary" href="https://medium.com/ai2-blog/counteracting-neural-disinformation-with-grover-6cf6690d463b" role="button">Blog post with more experiments »</a>
-        <a class="btn btn-lg btn-primary" href="http://github.com/rowanz/grover" role="button">Code »</a>
-        <a class="btn btn-lg btn-dark" href="https://docs.google.com/forms/d/1LMAUeUtHNPXO9koyAIlDpvyKsLSYlrBj3rYhC30a7Ak" role="button">Get checkpoints for Grover-Mega »</a>
+      <a class="btn btn-lg btn-info" href="https://arxiv.org/abs/2106.13088" role="button">TwiBot-22 Paper »</a>
+          <a class="btn btn-lg btn-warning" href="https://github.com/LuoUndergradXJTU/TwiBot22-baselines" role="button">TwiBot-22 Repo »</a>
+        <a class="btn btn-lg btn-secondary" href="https://arxiv.org/abs/2106.13088" role="button">TwiBot-20 Paper »</a>
+        <a class="btn btn-lg btn-primary" href="https://github.com/BunsenFeng/TwiBot-20" role="button">TwiBot-20 Repo »</a>
+        <a class="btn btn-lg btn-dark" href="https://botometer.osome.iu.edu/bot-repository/" role="button">Bot Repository »</a>
 
 <!--<p>Here, we demonstrate how Grover can generate a realistic-looking fake news article, and then detect that it was AI-generated. To generate a fake news article with Grover, fill in the article pieces below and then press <b>generate</b> next to what you want to generate. After filling in an article, you can <b>detect</b> if it was Grover-written or Human-written.-->
     <!--</p>-->
@@ -600,54 +600,27 @@
         <!--<a class="btn btn-lg btn-info" href="https://arxiv.org/abs/1905.12616" role="button">Paper (arxiv) &raquo;</a>-->
     <!--</div>-->
 
-    <div id="about" class="anchor-target" style="margin-top: 1rem;"><h2>Our goal is to develop a strategy to respond to Neural Fake News.</h2>
+    <div id="about" class="anchor-target" style="margin-top: 1rem;"><h2>TBD</h2>
         <p>
-            Recent progress in natural language generation has raised dual-use concerns.
-            While applications like summarization and translation are positive, the
-            underlying technology also might enable adversaries to generate neural fake
-            news: targeted propaganda that closely mimics the style of real news.
+            TBD
         </p>
-
-        <p> Modern computer security relies on careful threat modeling: identifying
-            potential threats and vulnerabilities from an adversary's point of view, and
-            exploring potential mitigations to these threats. Likewise, developing robust
-            defenses against neural fake news requires us first to carefully investigate
-            and characterize the risks of these models. We thus present a model for
-            controllable text generation called Grover. Given a headline like `Link Found
-            Between Vaccines and Autism,' Grover can generate the rest of the article;
-            humans find these generations to be more trustworthy than human-written
-            disinformation.</p>
-        <p>Developing robust verification techniques against generators like Grover is
-            critical. We find that best current discriminators can classify neural fake
-            news from real, human-written, news with 73% accuracy, assuming access to a
-            moderate level of training data. Counterintuitively, the best defense against
-            Grover turns out to be Grover itself, with 92% accuracy, demonstrating the
-            importance of public release of strong generators. We investigate these results
-            further, showing that exposure bias -- and sampling strategies that alleviate
-            its effects -- both leave artifacts that similar discriminators can pick up on.
-            We conclude by discussing ethical issues regarding the technology, and plan to
-            release Grover publicly, helping pave the way for better detection of neural
-            fake news.
-        </p>
+        
         <div id="paper" class="anchor-target">
-            <h2>Paper: Defending Against Neural Fake News</h2>
+            <h2>Paper: TwiBot-22: Towards Graph-Based Twitter Bot Detection</h2>
             <div class="img-wrapper">
-                <a href="https://arxiv.org/abs/1905.12616"><img class="img-fluid" src="paperpreview.jpg">
+                <a href="https://arxiv.org/abs/2106.13088"><img class="img-fluid" src="paperpreview.jpg">
                     <div class="img-overlay">
                         <button class="btn btn-info">Read the paper on arXiv»</button>
                     </div>
                 </a>
             </div>
             If the paper inspires you, please cite us:
-            <pre class="citation">@incollection{zellers2019neuralfakenews,
-title = {Defending Against Neural Fake News},
-author = {Zellers, Rowan and Holtzman, Ari and Rashkin, Hannah and Bisk, Yonatan and Farhadi, Ali and Roesner, Franziska and Choi, Yejin},
-booktitle = {Advances in Neural Information Processing Systems 32},
-editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
-pages = {9054--9065},
-year = {2019},
-publisher = {Curran Associates, Inc.},
-url = {http://papers.nips.cc/paper/9106-defending-against-neural-fake-news.pdf}
+            <pre class="citation">@inproceedings{feng2021twibot,
+  title={Twibot-20: A comprehensive twitter bot detection benchmark},
+  author={Feng, Shangbin and Wan, Herun and Wang, Ningnan and Li, Jundong and Luo, Minnan},
+  booktitle={Proceedings of the 30th ACM International Conference on Information \& Knowledge Management},
+  pages={4485--4494},
+  year={2021}
 }
 
 </pre>
